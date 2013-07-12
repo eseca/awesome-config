@@ -31,7 +31,7 @@ beautiful.init(theme_path)
 browser = "chromium-browser"
 mail = "thunderbird"
 terminal = "gnome-terminal"
-file_manager = "thunar"
+file_manager = "pcmanfm"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -280,16 +280,22 @@ vicious.register(datewidget, vicious.widgets.date, "%d %b, %I:%M%P")
 -- CPU widget
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, 
-    "<span color=\"#909090\">CPU:</span>"..
-    "<span color=\"white\">$1%</span> "..
-    "<span color=\"#909090\">[</span>"..
-    "<span color=\"white\">$2%</span>"..
-    "<span color=\"#909090\">,</span>"..
-    "<span color=\"white\">$3%</span>"..
-    "<span color=\"#909090\">,</span>"..
-    "<span color=\"white\">$4%</span>"..
-    "<span color=\"#909090\">]</span>"
-    , 3)
+function (widget, args)
+    r = "<span color=\"#909090\">CPU:</span>"..
+    "<span color=\"white\">".. args[1] .."%</span>"
+
+    if #args > 2 then
+        r = r .. " <span color=\"#909090\">[</span>"
+        for i=2, #args, 1 do
+            r = r
+            .."<span color=\"white\">"..args[i].."%</span>"
+            .."<span color=\"#909090\">,</span>"
+        end
+        r = r .. "<span color=\"#909090\">]</span>"
+    end
+
+    return r
+end, 3)
 -- Memory widget
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
