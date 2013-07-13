@@ -215,6 +215,7 @@ shifty.config.apps = {
         },
         tag = "im",
         slave = true,
+        float = false,
     },
     {
         match = {
