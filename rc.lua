@@ -270,14 +270,17 @@ shifty.config.defaults = {
 -- Wibox
 --
 -- {{{ Vicious widgets definitions:
+--
 -- Separator/Spacer icons
 separator = widget({ type = "textbox", align = "left"})
 separator.text = '<span color="#000000"> ▪ </span>'
 space = widget({ type = "textbox" })
 space.text = "  "
+--
 -- Date widget
 datewidget = widget({ type = "textbox" })
 vicious.register(datewidget, vicious.widgets.date, "%d %b, %I:%M%P")
+--
 -- CPU widget
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, 
@@ -297,12 +300,14 @@ function (widget, args)
 
     return r
 end, 3)
+--
 -- Memory widget
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget, vicious.widgets.mem,
     "<span color=\"#909090\">RAM:</span>" ..
     "<span color=\"#FFFFFF\">$1%</span>", 13)
+--
 -- MPD widget
 mpdwidget = widget({ type = "textbox" })
 vicious.register(mpdwidget,
@@ -319,6 +324,7 @@ function (widget, args)
 		'<span color="white">'.. args["{Album}"] ..  '</span> '
 	end
 end)
+--
 -- Volume widget
 volwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.volume)
