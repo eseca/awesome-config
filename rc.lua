@@ -331,6 +331,45 @@ vicious.cache(vicious.widgets.volume)
 vicious.register(volwidget, vicious.widgets.volume,
     "<span color=\"#909090\">VOL:</span>" ..
     "<span color=\"#FFFFFF\">$1%</span>", 2, "Master")
+--
+-- Battery widget
+batnotification = 0
+batwidget = widget({ type = "textbox" })
+vicious.cache(vicious.widgets.volume)
+vicious.register(batwidget, vicious.widgets.bat,
+function (widget, args)
+    local color = "#FFFFFF"
+    if args[1]=='-' and args[2]<=15 then
+        color = "#F7D434"
+        if batnotification==0 then
+            naughty.notify({
+                timeout = 10,
+                text="Battery is low.",
+                replaces_id=1,
+            })
+            batnotification = 1
+        end
+    end
+
+    if args[1]=='-' and args[2]<=5 then
+        color = "#ED3232"
+        if batnotification<=1 then
+            naughty.notify({
+                timeout = 0,
+                fg=color,
+                text="Battery is low.", })
+            batnotification = 2
+        end
+    end
+
+    if args[1]=='+' then
+        color = "#C8CDE0"
+        batnotification=0
+    end
+
+    return "<span color=\"#909090\">BAT:</span>"
+    .."<span color=\""..color.."\">" ..args[2].."%</span>"
+end, 1, "BAT1")
 -- }}}
 
 -- Create a laucher widget and a main menu
@@ -437,6 +476,8 @@ for s = 1, screen.count() do
         cpuwidget,
         separator,
         volwidget,
+        separator,
+        batwidget,
         separator,
         mpdwidget,
         mytasklist[s],
