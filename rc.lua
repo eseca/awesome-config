@@ -122,7 +122,7 @@ shifty.config.apps = {
             "Gran Paradiso",
         },
         tag         = "1:web",
-        geometry    = {nil, 19, nil, nil},
+        geometry    = {nil, 18, nil, nil},
         float       = false,
     },
     -- YouTube full-screen video mode.
@@ -235,7 +235,7 @@ shifty.config.apps = {
     },
     {
         match = {""},
-        geometry = {nil, 19, nil, nil},
+        geometry = {nil, 18, nil, nil},
         honorsizehints = false,
         buttons = awful.util.table.join(
             awful.button({}, 1, function (c) client.focus = c; c:raise() end),
