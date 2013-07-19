@@ -696,4 +696,6 @@ run_once("gnome-do")
 run_once("mpd")
 run_once("mpdscribble")
 run_once("fluxgui")
+run_once("/usr/lib/notification-daemon/notification-daemon")
+run_once("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
 -- }}}
