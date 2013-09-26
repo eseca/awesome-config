@@ -558,12 +558,24 @@ globalkeys = awful.util.table.join(
     end),
 
     -- MPD control trough MPC
+    awful.key({modkey, }, ",",
+    function ()
+        awful.util.spawn("mpc toggle" )
+    end),
     awful.key({ }, "XF86AudioPlay",
     function ()
         awful.util.spawn("mpc toggle" )
     end),
 
     -- Volume control media key.
+    awful.key({modkey, "Shift", }, "-",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%+" )
+    end),
+    awful.key({modkey, }, "-",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%-" )
+    end),
     awful.key({ }, "XF86AudioRaiseVolume",
     function ()
         awful.util.spawn("amixer -q sset Master 3%+" )
