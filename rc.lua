@@ -699,7 +699,7 @@ function run_once(prg,arg_string,pname,screen)
     end
 end
 
-run_once("xcompmgr")
+--run_once("xcompmgr")
 run_once("dropbox","start")
 run_once("nm-applet")
 run_once("gnome-sound-applet")
