@@ -703,7 +703,7 @@ end
 run_once("dropbox","start")
 run_once("nm-applet")
 run_once("gnome-sound-applet")
-run_once("conky")
+run_once("conky", "-c ~/.conky/conkyrc_grey")
 run_once("gnome-do")
 --run_once("mpd")
 --run_once("mpdscribble")
