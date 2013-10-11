@@ -101,7 +101,7 @@ shifty.config.tags = {
         mwfact      = 0.70,
     },
     media = {
-        layout    = awful.layout.suit.fair.horizontal,
+        layout    = awful.layout.suit.magnifier,
         exclusive = false,
     },
     im = {
