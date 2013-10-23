@@ -273,29 +273,34 @@ shifty.config.defaults = {
 --
 -- Separator/Spacer icons
 separator = widget({ type = "textbox", align = "left"})
-separator.text = '<span color="#000000"> ▪ </span>'
+separator.text = '<span color="' .. beautiful.border_widget ..'"> ▪ </span>'
 space = widget({ type = "textbox" })
 space.text = "  "
 --
+-- Format functions:
+function widget_label(label)
+    return '<span color="' .. beautiful.fg_widget_label .. '">'.. label .. '</span>'
+end
+function widget_value(value)
+    return '<span color="' .. beautiful.fg_widget_value .. '">'.. value .. '</span>'
+end
+--
 -- Date widget
 datewidget = widget({ type = "textbox" })
-vicious.register(datewidget, vicious.widgets.date, "%d %b, %I:%M%P")
+vicious.register(datewidget, vicious.widgets.date, widget_value("%d %b, %I:%M%P"))
 --
 -- CPU widget
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, 
 function (widget, args)
-    r = "<span color=\"#909090\">CPU:</span>"..
-    "<span color=\"white\">".. args[1] .."%</span>"
+    r = widget_label("CPU:") .. widget_value(args[1].."%")
 
     if #args > 2 then
-        r = r .. " <span color=\"#909090\">[</span>"
+        r = r .. widget_label("[")
         for i=2, #args, 1 do
-            r = r
-            .."<span color=\"white\">"..args[i].."%</span>"
-            .."<span color=\"#909090\">,</span>"
+            r = r ..widget_value(args[i].."%") ..widget_label(",")
         end
-        r = r .. "<span color=\"#909090\">]</span>"
+        r = r .. widget_label("]")
     end
 
     return r
@@ -305,10 +310,11 @@ end, 3)
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget, vicious.widgets.mem,
-    "<span color=\"#909090\">RAM:</span>" ..
-    "<span color=\"#FFFFFF\">$1%</span>", 13)
+    widget_label("RAM:")..widget_value("$1%"), 13)
 --
 -- MPD widget
+mpdwidget = nil
+--[[
 mpdwidget = widget({ type = "textbox" })
 vicious.register(mpdwidget,
 vicious.widgets.mpd,
@@ -323,14 +329,13 @@ function (widget, args)
 		'<span color="#909090">de</span> '..
 		'<span color="white">'.. args["{Album}"] ..  '</span> '
 	end
-end)
+end)]]
 --
 -- Volume widget
 volwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.volume)
 vicious.register(volwidget, vicious.widgets.volume,
-    "<span color=\"#909090\">VOL:</span>" ..
-    "<span color=\"#FFFFFF\">$1%</span>", 2, "Master")
+    widget_label("VOL:") .. widget_value("$1%"), 2, "Master")
 --
 -- Battery widget
 batnotification = 0
@@ -367,8 +372,7 @@ function (widget, args)
         batnotification=0
     end
 
-    return "<span color=\"#909090\">BAT:</span>"
-    .."<span color=\""..color.."\">" ..args[2].."%</span>"
+    return widget_label("BAT:") .. widget_value(args[2].."%")
 end, 1, "BAT1")
 -- }}}
 
@@ -468,7 +472,9 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+        separator,
         datewidget,
+        separator,
         s == 1 and mysystray or nil,
         separator,
         memwidget,

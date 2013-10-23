@@ -49,11 +49,12 @@ theme.taglist_bg_focus = "#000000"
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
--- theme.fg_widget        = "#AECF96"
--- theme.fg_center_widget = "#88A175"
--- theme.fg_end_widget    = "#FF5656"
--- theme.bg_widget        = "#494B4F"
--- theme.border_widget    = "#3F3F3F"
+theme.fg_widget_value  = "#EBE8E7"
+theme.fg_widget_label  = "#8F9391"
+theme.fg_center_widget = "#88A175"
+theme.fg_end_widget    = "#FF5656"
+theme.bg_widget        = "#494B4F"
+theme.border_widget    = "#000000"
 -- }}}
 
 -- {{{ Mouse finder
