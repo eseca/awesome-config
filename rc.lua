@@ -63,7 +63,7 @@ use_titlebar = false
 -- Shifty configured tags.
 shifty.config.tags = {
     ["1:web"] = {
-        layout      = awful.layout.suit.floating,
+        layout      = awful.layout.suit.max,
         mwfact      = 0.50,
         position    = 1,
         spawn       = browser,
@@ -501,7 +501,7 @@ shifty.init()
 
 -- Mouse bindings
 root.buttons(awful.util.table.join(
-    awful.button({}, 3, function() mymainmenu:toggle() end),
+    awful.button({}, 2, function() awful.util.spawn("awsetbg -l" ) end),
     awful.button({}, 4, awful.tag.viewnext),
     awful.button({}, 5, awful.tag.viewprev)
 ))
