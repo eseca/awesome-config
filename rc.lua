@@ -63,7 +63,7 @@ use_titlebar = false
 -- Shifty configured tags.
 shifty.config.tags = {
     ["1:web"] = {
-        layout      = awful.layout.suit.max,
+        layout      = awful.layout.suit.max.fullscreen,
         mwfact      = 0.50,
         position    = 1,
         spawn       = browser,
