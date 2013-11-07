@@ -599,6 +599,18 @@ globalkeys = awful.util.table.join(
         awful.util.spawn("amixer -q sset Master 3%-" )
     end),
 
+    -- Moving and rezising floating windows
+    --awful.key({ modkey }, "Next",  function () awful.client.moveresize( 20,  20, -40, -40) end),
+    --awful.key({ modkey }, "Prior", function () awful.client.moveresize(-20, -20,  40,  40) end),
+    awful.key({ modkey, "Shift"}, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
+    awful.key({ modkey, "Shift"}, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
+    awful.key({ modkey, "Shift"}, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
+    awful.key({ modkey, "Shift"}, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
+    awful.key({ modkey }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+
     -- Standard program
     awful.key({modkey,}, "Return", function() awful.util.spawn(terminal) end),
     awful.key({modkey,}, ".", function() awful.util.spawn(file_manager) end),
