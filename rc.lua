@@ -234,6 +234,14 @@ shifty.config.apps = {
         slave = true,
     },
     {
+        match = {
+            "Abrir archivo",
+        },
+        geometry = {0, 0, 0, 0},
+        float = true,
+        slave = true,
+    },
+    {
         match = {""},
         geometry = {nil, 18, nil, nil},
         honorsizehints = false,
