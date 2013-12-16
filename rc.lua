@@ -31,7 +31,7 @@ beautiful.init(theme_path)
 browser = "chromium-browser"
 mail = "thunderbird"
 terminal = "gnome-terminal"
-file_manager = "pcmanfm"
+file_manager = "thunar"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
