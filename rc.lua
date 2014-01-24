@@ -322,7 +322,6 @@ vicious.register(memwidget, vicious.widgets.mem,
 --
 -- MPD widget
 mpdwidget = nil
---[[
 mpdwidget = widget({ type = "textbox" })
 vicious.register(mpdwidget,
 vicious.widgets.mpd,
@@ -337,7 +336,7 @@ function (widget, args)
 		'<span color="#909090">de</span> '..
 		'<span color="white">'.. args["{Album}"] ..  '</span> '
 	end
-end)]]
+end)
 --
 -- Volume widget
 volwidget = widget({ type = "textbox" })
@@ -733,7 +732,7 @@ run_once("conky")
 run_once("gnome-do")
 --run_once("mpd")
 --run_once("mpdscribble")
---run_once("mopidy")
+run_once("mopidy")
 run_once("fluxgui")
 run_once("/usr/lib/notification-daemon/notification-daemon")
 run_once("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
