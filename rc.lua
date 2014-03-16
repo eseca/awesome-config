@@ -11,6 +11,8 @@ require("naughty")
 require("shifty")
 -- Vicious - widget framework
 vicious = require("vicious")
+-- Scratchpad
+local scratch = require("scratch")
 
 -- useful for debugging, marks the beginning of rc.lua exec
 print("Entered rc.lua: " .. os.time())
@@ -612,6 +614,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({modkey,}, "Return", function() awful.util.spawn(terminal) end),
+    awful.key({modkey, "Shift"}, "Return", function() scratch.drop(terminal) end),
     awful.key({modkey,}, ".", function() awful.util.spawn(file_manager) end),
     awful.key({modkey, "Control"}, "r", awesome.restart),
     awful.key({modkey, "Shift"}, "q", awesome.quit),
