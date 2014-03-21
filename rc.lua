@@ -30,7 +30,7 @@ theme_path = awful.util.getdir("config") .. "/themes/darkblue/theme.lua"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-browser = "chromium-browser"
+browser = "chromium"
 mail = "thunderbird"
 terminal = "gnome-terminal"
 file_manager = "thunar"
@@ -140,6 +140,8 @@ shifty.config.apps = {
     {
         match = {
             "vim",          
+            "Eclipse",          
+            "eclim",          
         },
         tag         = "2:code",
     },
@@ -732,7 +734,7 @@ run_once("dropbox","start")
 run_once("nm-applet")
 run_once("gnome-sound-applet")
 run_once("conky")
-run_once("gnome-do")
+run_once("kupfer")
 --run_once("mpd")
 --run_once("mpdscribble")
 run_once("mopidy")
