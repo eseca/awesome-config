@@ -30,7 +30,7 @@ theme_path = awful.util.getdir("config") .. "/themes/darkblue/theme.lua"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-browser = "chromium"
+browser = "chromium-browser"
 mail = "thunderbird"
 terminal = "gnome-terminal"
 file_manager = "thunar"
