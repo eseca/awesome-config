@@ -64,16 +64,17 @@ use_titlebar = false
 
 -- Shifty configured tags.
 shifty.config.tags = {
-    ["1:web"] = {
+    web = {
         layout      = awful.layout.suit.max,
         mwfact      = 0.50,
         position    = 1,
         spawn       = browser,
         exclusive   = true,
     },
-    ["2:code"] = {
+    code = {
         layout      = awful.layout.suit.tile.left,
         mwfact      = 0.65,
+        spawn       = terminal,
         position    = 2,
     },
     foo = {
@@ -90,7 +91,7 @@ shifty.config.tags = {
         exclusive = true,
     },
     vm = {
-        layout    = awful.layout.suit.magnifier,
+        layout    = awful.layout.suit.max,
         mwfact    = 0.70,
         exclusive = true,
     },
@@ -101,6 +102,7 @@ shifty.config.tags = {
     steam = {
         layout    = awful.layout.suit.tile,
         mwfact      = 0.70,
+        spawn       = "steam",
     },
     media = {
         layout    = awful.layout.suit.magnifier,
@@ -123,7 +125,7 @@ shifty.config.apps = {
             "Vimperator",
             "Gran Paradiso",
         },
-        tag         = "1:web",
+        tag         = "web",
         geometry    = {nil, 18, nil, nil},
         float       = false,
     },
@@ -132,18 +134,24 @@ shifty.config.apps = {
         match = {
             "exe",          
         },
-        tag         = "1:web",
+        tag         = "web",
         fullscreen  = true,
         float       = true,
         slave       = true,
     },
     {
         match = {
-            "vim",          
+            "adt",          
+            "ADT",          
             "Eclipse",          
-            "eclim",          
         },
-        tag         = "2:code",
+        tag = ":android",
+    },
+    {
+        match = {
+            class={"Eclipse",},          
+        },
+        float=true,
     },
     {
         match = {
@@ -161,20 +169,11 @@ shifty.config.apps = {
     },
     {
         match = {
-            "steam",
             "Steam",
-            "killingfloor-bin",
-            "KillingFloor",
-            "Killing Floor",
+            "steam",
         },
         tag = "steam",
     },
-    --[[{
-        match = {
-            name="Steam - Update News. ",
-        },
-        float = true,
-    },]]
     {
         match = {
             "mednafen",
@@ -187,6 +186,8 @@ shifty.config.apps = {
     {
         match = {
             "pcmanfm",
+            "thunar",
+            "Thunar",
         },
         slave = true
     },
@@ -325,6 +326,7 @@ vicious.register(memwidget, vicious.widgets.mem,
     widget_label("RAM:")..widget_value("$1%"), 13)
 --
 -- MPD widget
+--[[
 mpdwidget = nil
 mpdwidget = widget({ type = "textbox" })
 vicious.register(mpdwidget,
@@ -341,6 +343,7 @@ function (widget, args)
 		'<span color="white">'.. args["{Album}"] ..  '</span> '
 	end
 end)
+]]
 --
 -- Volume widget
 volwidget = widget({ type = "textbox" })
@@ -496,7 +499,7 @@ for s = 1, screen.count() do
         separator,
         batwidget,
         separator,
-        mpdwidget,
+        --mpdwidget,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
         }
