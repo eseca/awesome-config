@@ -113,6 +113,10 @@ shifty.config.tags = {
         mwfact    = 0.30,
         exclusive = true,
     },
+    office = {
+        layout    = awful.layout.suit.max,
+        exclusive = true,
+    },
 }
 
 -- SHIFTY: application matching rules
@@ -228,6 +232,13 @@ shifty.config.apps = {
             "Gnuplot",
             "galculator",
             "Banshee",
+        },
+        float = true,
+    },
+    {
+        match = {
+            "OpenOffice.*",
+            "LibreOffice.*",
         },
         float = true,
     },
@@ -619,7 +630,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({modkey,}, "Return", function() awful.util.spawn(terminal) end),
-    awful.key({modkey, "Shift"}, "Return", function() scratch.drop(terminal) end),
+    awful.key({modkey, "Shift"}, "Return", function() scratch.drop(terminal, "top", "center", 0.75, 0.40) end),
     awful.key({modkey,}, ".", function() awful.util.spawn(file_manager) end),
     awful.key({modkey, "Control"}, "r", awesome.restart),
     awful.key({modkey, "Shift"}, "q", awesome.quit),
