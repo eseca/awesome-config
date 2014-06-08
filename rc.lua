@@ -168,6 +168,7 @@ shifty.config.apps = {
     {
         match = {
             "VirtualBox",
+            "Geanymotion.",
         },
         tag = "vm",
     },
