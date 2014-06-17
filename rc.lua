@@ -340,7 +340,6 @@ vicious.register(memwidget, vicious.widgets.mem,
     widget_label("RAM:")..widget_value("$1%"), 13)
 --
 -- MPD widget
---[[
 mpdwidget = nil
 mpdwidget = widget({ type = "textbox" })
 vicious.register(mpdwidget,
@@ -357,7 +356,7 @@ function (widget, args)
 		'<span color="white">'.. args["{Album}"] ..  '</span> '
 	end
 end)
-]]
+
 --
 -- Volume widget
 volwidget = widget({ type = "textbox" })
@@ -513,7 +512,7 @@ for s = 1, screen.count() do
         separator,
         batwidget,
         separator,
-        --mpdwidget,
+        mpdwidget,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
         }
@@ -754,7 +753,7 @@ run_once("nm-applet")
 --run_once("kupfer")
 --run_once("mpd")
 --run_once("mpdscribble")
---run_once("mopidy")
+run_once("mopidy")
 --run_once("fluxgui")
 run_once("/usr/lib/notification-daemon/notification-daemon")
 run_once("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
