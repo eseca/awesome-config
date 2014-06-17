@@ -162,13 +162,15 @@ shifty.config.apps = {
             "Inkscape",
             "gimp",
             "FreeCAD",
+            "Dia",
         },
         tag = "draw",
     },
     {
         match = {
             "VirtualBox",
-            "Geanymotion.",
+            "Genymotion",
+            "genymotion",
         },
         tag = "vm",
     },
