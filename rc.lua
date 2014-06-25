@@ -128,6 +128,7 @@ shifty.config.apps = {
             "Navigator",
             "Vimperator",
             "Gran Paradiso",
+            ".chrome",
         },
         tag         = "web",
         geometry    = {nil, 18, nil, nil},
