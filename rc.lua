@@ -225,6 +225,7 @@ shifty.config.apps = {
             "Pidgin",
             "skype",
             "Viber",
+            "Hangouts.",
         },
         tag = "im",
         slave = true,
