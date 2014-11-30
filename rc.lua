@@ -32,7 +32,7 @@ beautiful.init(theme_path)
 -- This is used later as the default terminal and editor to run.
 browser = "google-chrome"
 mail = "thunderbird"
-terminal = "gnome-terminal"
+terminal = "urxvt"
 file_manager = "thunar"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
