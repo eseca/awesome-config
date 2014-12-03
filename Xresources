@@ -46,8 +46,8 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
 ! Font
-urxvt.font: xft:terminus:pixelsize=11
-urxvt*boldFont: xft:terminus:pixelsize=11
+urxvt.font: xft:terminus:pixelsize=13
+urxvt*boldFont: xft:terminus:pixelsize=13
 
 ! Hide pointer on key press
 URxvt*pointerBlank: true
