@@ -92,7 +92,7 @@ tyrannical.tags = {
         layout      = awful.layout.suit.max,      -- Use the max layout
         class = {
             "Opera"         , "Firefox"        , "Rekonq"    , "Dillo"        , "Arora",
-            "Chromium"      , "nightly"        , "minefield" , "Google-chrome"    }
+            "Chromium"      , "nightly"        , "minefield" , "Google-chrome-stable"    }
     } ,
     {
         name        = "code",
