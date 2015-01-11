@@ -12,6 +12,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+-- Vicious - widget framework
+vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -81,30 +83,51 @@ tyrannical.settings.mwfact = 0.66
 -- Setup some tags
 tyrannical.tags = {
     {
-        name        = "Term",                 -- Call the tag "Term"
-        init        = true,                   -- Load the tag on startup
-        exclusive   = true,                   -- Refuse any other type of clients (by classes)
-        screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
-        layout      = awful.layout.suit.tile, -- Use the tile layout
-        selected    = true,
-        class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
-            "xterm" , "urxvt" , "aterm","URxvt","XTerm","konsole","terminator","gnome-terminal"
-        }
-    } ,
-    {
         name        = "www",
         init        = true,
         exclusive   = true,
-      --icon        = "~net.png",                 -- Use this icon for the tag (uncomment with a real path)
-        screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
+        --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
+        screen      = {1, 2},
         layout      = awful.layout.suit.max,      -- Use the max layout
         class = {
             "Opera"         , "Firefox"        , "Rekonq"    , "Dillo"        , "Arora",
             "Chromium"      , "nightly"        , "minefield" , "Google-chrome"    }
     } ,
     {
-        name = "Files",
+        name        = "code",
         init        = true,
+        exclusive   = false,
+        screen      = 1,
+        clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
+                         -- The tag can be used on both screen, but only one at once
+        layout      = awful.layout.suit.max ,
+        class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+            "xterm" , "urxvt" , "aterm","URxvt","XTerm","konsole","terminator","gnome-terminal"
+        }
+    } ,
+    {
+        name        = "draw",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.max,
+        class  = {
+            "Inkscape", "gimp"
+        }
+    } ,
+    {
+        name        = "cad",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.max,
+        class  = {
+            "FreeCAD"
+        }
+    } ,
+    {
+        name        = "files",
+        init        = false,
         exclusive   = true,
         screen      = 1,
         layout      = awful.layout.suit.tile,
@@ -114,15 +137,14 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "Develop",
-        init        = true,
+        name        = "vm",
+        init        = false,
         exclusive   = true,
         screen      = 1,
-        clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
-                         -- The tag can be used on both screen, but only one at once
-        layout      = awful.layout.suit.max                          ,
-        class ={ 
-            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4"}
+        layout      = awful.layout.suit.max,
+        class  = {
+            "VirtualBox", "Genymotion", "genymotion",
+        }
     } ,
     {
         name        = "Doc",
@@ -134,6 +156,39 @@ tyrannical.tags = {
         class       = {
             "Assistant"     , "Okular"         , "Evince"    , "EPDFviewer"   , "xpdf",
             "Xpdf"          ,                                        }
+    } ,
+    {
+        name        = "steam",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.tile,
+        class  = {
+            "Steam", "steam"
+        }
+    } ,
+    {
+        name        = "game",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.tile,
+        class  = {
+            "mednafen", "zsnes", "stepmania", "armagetronad",
+        }
+    } ,
+    {
+        name        = "media",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.max,
+        class  = {
+            "Mplayer.*", "mplayer", "Mirage", "gtkpod", "Ufraw",
+            "easytag", "Reproductor", "Totem", "pitivi", "lingot",
+            "Gnome Subtitles", "ncmpc", "spotify", "ncmpcpp",
+            "vlc", 
+        }
     } ,
 }
 
@@ -512,4 +567,35 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+-- {{{ Startup programs
+function run_once(prg,arg_string,pname,screen)
+    if not prg then
+        do return nil end
+    end
+
+    if not pname then
+       pname = prg
+    end
+
+    if not arg_string then 
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+    else
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
+    end
+end
+
+--run_once("xcompmgr")
+run_once("dropbox","start")
+run_once("nm-applet")
+--run_once("gnome-sound-applet")
+--run_once("conky")
+--run_once("kupfer")
+--run_once("mpd")
+--run_once("mpdscribble")
+run_once("mopidy")
+--run_once("fluxgui")
+run_once("/usr/lib/notification-daemon/notification-daemon")
+run_once("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
 -- }}}
