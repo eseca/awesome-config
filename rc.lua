@@ -208,6 +208,11 @@ tyrannical.properties.floating = {
     "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer" 
 }
 
+-- Force terminal to open as slave
+tyrannical.properties.slave = {
+    terminal,
+}
+
 -- Make the matching clients (by classes) on top of the default layout
 tyrannical.properties.ontop = {
     "Xephyr"       , "ksnapshot"       , "kruler"
