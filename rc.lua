@@ -84,7 +84,7 @@ tyrannical.settings.mwfact = 0.66
 -- Setup some tags
 tyrannical.tags = {
     {
-        name        = "www",
+        name        = "web",
         init        = true,
         exclusive   = true,
         --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
