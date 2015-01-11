@@ -101,7 +101,7 @@ tyrannical.tags = {
         screen      = 1,
         clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
                          -- The tag can be used on both screen, but only one at once
-        layout      = awful.layout.suit.max ,
+        layout      = awful.layout.suit.tile ,
         class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
             "xterm" , "urxvt" , "aterm","URxvt","XTerm","konsole","terminator","gnome-terminal"
         }
