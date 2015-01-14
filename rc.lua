@@ -421,7 +421,25 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- Volume control media key.
+    awful.key({modkey, "Shift", }, "-",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%+" )
+    end),
+    awful.key({modkey, }, "-",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%-" )
+    end),
+    awful.key({ }, "XF86AudioRaiseVolume",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%+" )
+    end),
+    awful.key({ }, "XF86AudioLowerVolume",
+    function ()
+        awful.util.spawn("amixer -q sset Master 3%-" )
+    end)
 )
 
 clientkeys = awful.util.table.join(
