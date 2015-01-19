@@ -1,7 +1,7 @@
 URxvt*termName:  rxvt-256color
 
 urxvt*foreground: white
-urxvt*background: black
+urxvt*background: #0E0E0E
 
 ! Tango color theme
 *color0:  #2E3436
@@ -22,8 +22,6 @@ urxvt*background: black
 *color15: #EEEEEC
 
 ! Pseudo transparency
-urxvt*transparent: true
-urxvt*shading: 15
 
 ! Fade
 URxvt*fading:  30
