@@ -424,19 +424,19 @@ globalkeys = awful.util.table.join(
     -- Volume control media key.
     awful.key({modkey, "Shift", }, "-",
     function ()
-        awful.util.spawn("amixer -q sset Master 3%+" )
+        awful.util.spawn("amixer -D pulse sset Master 3%+" )
     end),
     awful.key({modkey, }, "-",
     function ()
-        awful.util.spawn("amixer -q sset Master 3%-" )
+        awful.util.spawn("amixer -D pulse sset Master 3%-" )
     end),
     awful.key({ }, "XF86AudioRaiseVolume",
     function ()
-        awful.util.spawn("amixer -q sset Master 3%+" )
+        awful.util.spawn("amixer -D pulse sset Master 3%+" )
     end),
     awful.key({ }, "XF86AudioLowerVolume",
     function ()
-        awful.util.spawn("amixer -q sset Master 3%-" )
+        awful.util.spawn("amixer -D pulse sset Master 3%-" )
     end)
 )
 
