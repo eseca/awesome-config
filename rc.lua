@@ -111,7 +111,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.max,
         class  = {
-            "Inkscape", "gimp"
+            "Inkscape", "gimp-2.8",
         }
     } ,
     {
