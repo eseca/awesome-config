@@ -421,6 +421,16 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
 
+    -- MPD control trough MPC
+    awful.key({modkey, }, ",",
+    function ()
+        awful.util.spawn("mpc toggle" )
+    end),
+    awful.key({ }, "XF86AudioPlay",
+    function ()
+        awful.util.spawn("mpc toggle" )
+    end),
+
     -- Volume control media key.
     awful.key({modkey, "Shift", }, "-",
     function ()
