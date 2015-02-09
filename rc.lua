@@ -12,6 +12,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+-- Basic MPD
+require("obvious.basic_mpd")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -336,6 +338,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(obvious.basic_mpd())
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
