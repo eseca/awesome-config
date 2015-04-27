@@ -42,7 +42,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-theme_path = awful.util.getdir("config") .. "/themes/holo/theme.lua"
+theme_path = awful.util.getdir("config") .. "/themes/dunzor/theme.lua"
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
