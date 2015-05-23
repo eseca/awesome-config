@@ -170,13 +170,23 @@ tyrannical.tags = {
         }
     } ,
     {
-        name        = "game",
+        name        = "im",
         init        = false,
         exclusive   = true,
         screen      = 1,
         layout      = awful.layout.suit.tile,
         class  = {
-            "mednafen", "zsnes", "stepmania", "armagetronad",
+            "Skype",
+        }
+    } ,
+    {
+        name        = "steam",
+        init        = false,
+        exclusive   = true,
+        screen      = 1,
+        layout      = awful.layout.suit.tile,
+        class  = {
+            "Steam", "steam"
         }
     } ,
     {
