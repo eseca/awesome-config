@@ -199,7 +199,7 @@ tyrannical.tags = {
             "Mplayer.*", "mplayer", "Mirage", "gtkpod", "Ufraw",
             "easytag", "Reproductor", "Totem", "pitivi", "lingot",
             "Gnome Subtitles", "ncmpc", "spotify", "ncmpcpp",
-            "vlc", 
+            "vlc", "Popcorn-Time",
         }
     } ,
 }
