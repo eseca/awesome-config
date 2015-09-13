@@ -112,6 +112,7 @@ tyrannical.tags = {
         init        = false,
         exclusive   = true,
         screen      = screen.count()>1 and 2 or 1,
+        force_screen= screen.count()>1 and 2 or 1,
         layout      = awful.layout.suit.max,
         class  = {
             "Inkscape", "gimp-2.8",
