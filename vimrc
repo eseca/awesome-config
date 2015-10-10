@@ -49,8 +49,8 @@ syntax on
 "" Color
 set t_Co=256
 
+set background=dark
 colorscheme molokai
-set background=light
 
 "" Easier moving of code blocks
 vnoremap < <gv 
