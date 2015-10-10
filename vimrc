@@ -79,10 +79,6 @@ set splitright
 "" Basic tab completion
 imap <Tab> <C-P>
 
-" Settings for VimClojure
-let vimclojure#HighlightBuiltins = 1    " Highlight Clojure's builtins
-let vimclojure#ParenRainbow = 1         " Rainbow parentheses'!
-
 " Settings for pydoc plugin
 let g:pydoc_open_cmd = 'vsplit' 
 
