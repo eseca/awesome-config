@@ -90,6 +90,9 @@ nmap ,f :FufFileWithCurrentBufferDir<CR>
 nmap ,b :FufBuffer<CR>
 nmap ,t :FufTaggedFile<CR>
 
+"" vim-airline statusline appear all the time
+set laststatus=2
+
 " Vim 80 column
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
