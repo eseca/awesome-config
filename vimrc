@@ -99,6 +99,9 @@ set laststatus=2
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+"" Disable vim-markdown folding
+let g:vim_markdown_folding_disabled=1
+
 " Two spaces indentation
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
