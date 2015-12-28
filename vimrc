@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,6 +104,16 @@ match OverLength /\%81v.\+/
 "" Disable vim-markdown folding
 let g:vim_markdown_folding_disabled=1
 
+"" syntastic begginer config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Two spaces indentation
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
@@ -113,3 +124,5 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 au BufRead,BufNewFile *.fountain set filetype=fountain
+
+
