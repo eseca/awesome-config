@@ -11,7 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'L9'
 
 Plugin 'tpope/vim-fugitive'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/fountain.vim'
 Plugin 'vim-scripts/fountainwiki.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -26,6 +25,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,13 +48,13 @@ set autoindent
 set nocompatible
 filetype plugin on
 filetype indent on
-syntax on
+syntax enable
 
 "" Color
 set t_Co=256
 
 set background=dark
-colorscheme molokai
+colorscheme solarized
 
 "" Easier moving of code blocks
 vnoremap < <gv 
