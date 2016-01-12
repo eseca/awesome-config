@@ -464,6 +464,16 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioLowerVolume",
     function ()
         awful.util.spawn("amixer -D pulse sset Master 3%-" )
+    end),
+
+    -- Screen brightness
+    awful.key({ }, "XF86MonBrightnessDown",
+    function ()
+        awful.util.spawn("xbacklight -dec 15")
+    end),
+    awful.key({ }, "XF86MonBrightnessUp",
+    function ()
+        awful.util.spawn("xbacklight -inc 15")
     end)
 )
 
