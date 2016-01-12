@@ -96,10 +96,7 @@ nmap ,t :FufTaggedFile<CR>
 
 "" vim-airline statusline appear all the time
 set laststatus=2
-
-" Vim 80 column
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+let g:airline#extensions#tabline#enabled = 1
 
 "" Disable vim-markdown folding
 let g:vim_markdown_folding_disabled=1
@@ -108,6 +105,9 @@ let g:vim_markdown_folding_disabled=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"" 80 column
+let &colorcolumn="81"
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
