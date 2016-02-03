@@ -179,7 +179,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.tile,
         class  = {
-            "Skype",
+            "Skype", "Slack"
         }
     } ,
     {
