@@ -26,6 +26,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -96,7 +97,6 @@ nmap ,t :FufTaggedFile<CR>
 
 "" vim-airline statusline appear all the time
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
 
 "" Disable vim-markdown folding
 let g:vim_markdown_folding_disabled=1
