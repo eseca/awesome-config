@@ -27,6 +27,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vimwiki'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,6 +122,7 @@ autocmd Filetype java setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 au BufRead,BufNewFile *.fountain set filetype=fountain
