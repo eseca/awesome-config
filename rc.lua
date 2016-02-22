@@ -443,9 +443,34 @@ globalkeys = awful.util.table.join(
     function ()
         awful.util.spawn("mpc toggle" )
     end),
+    awful.key({modkey, }, ".",
+    function ()
+        awful.util.spawn("mpc stop" )
+    end),
+        awful.key({modkey, "Shift"}, ".",
+    function ()
+        awful.util.spawn("mpc next" )
+    end),
+    awful.key({modkey, "Shift"}, ",",
+    function ()
+        awful.util.spawn("mpc prev" )
+    end),
+
     awful.key({ }, "XF86AudioPlay",
     function ()
         awful.util.spawn("mpc toggle" )
+    end),
+    awful.key({ }, "XF86AudioStop",
+    function ()
+        awful.util.spawn("mpc stop" )
+    end),
+    awful.key({ }, "XF86AudioNext",
+    function ()
+        awful.util.spawn("mpc next" )
+    end),
+    awful.key({ }, "XF86AudioPrev",
+    function ()
+        awful.util.spawn("mpc prev" )
     end),
 
     -- Volume control media key.
