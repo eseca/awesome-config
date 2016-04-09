@@ -59,6 +59,20 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
+-- {{ Battery widget
+batterywidget = wibox.widget.textbox()    
+batterywidget:set_text(" | Battery | ")    
+batterywidgettimer = timer({ timeout = 30 })    
+batterywidgettimer:connect_signal("timeout",    
+function()    
+    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
+    batterywidget:set_text(" |" .. fh:read("*l") .. " | ")    
+    fh:close()    
+end    
+)    
+batterywidgettimer:start()
+-- }}
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
@@ -354,6 +368,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(obvious.basic_mpd())
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(batterywidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
