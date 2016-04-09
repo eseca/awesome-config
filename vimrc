@@ -28,20 +28,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vimwiki'
 Plugin 'pangloss/vim-javascript'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+
 " Put your non-Plugin stuff after this line
 
 "" Numbers and  length
@@ -127,4 +119,8 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 au BufRead,BufNewFile *.fountain set filetype=fountain
 
-
+"" vim-markdown-preview
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_use_xdg_open=1
