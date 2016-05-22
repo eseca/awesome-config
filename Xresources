@@ -1,4 +1,4 @@
-URxvt*termName:  rxvt-256color
+URxvt*termName:  rxvt-unicode
 
 !! solarized dark
 #define S_base03        #002b36
