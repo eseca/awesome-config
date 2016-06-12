@@ -11,8 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'L9'
 
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/fountain.vim'
-Plugin 'vim-scripts/fountainwiki.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kchmck/vim-coffee-script'
@@ -29,6 +27,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vimwiki'
 Plugin 'pangloss/vim-javascript'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'sirtaj/vim-openscad'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
