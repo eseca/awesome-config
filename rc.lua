@@ -515,6 +515,12 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86MonBrightnessUp",
     function ()
         awful.util.spawn("xbacklight -inc 15")
+    end),
+
+    -- Xrandr screen adjust
+    awful.key({modkey, }, "s",
+    function ()
+        awful.util.spawn(awful.util.getdir("config") .. "/detect_displays.sh")
     end)
 )
 
