@@ -66,7 +66,8 @@ batterywidgettimer = timer({ timeout = 30 })
 batterywidgettimer:connect_signal("timeout",    
 function()    
     fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
-    batterywidget:set_text(" |" .. fh:read("*l") .. " | ")    
+    read = fh:read("*l") and (" |" .. fh:read("*l") .. " | ") or ''
+    batterywidget:set_text(read )    
     fh:close()    
 end    
 )    
@@ -141,7 +142,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.max,
         class  = {
-            "FreeCAD"
+            "FreeCAD", "OpenSCAD"
         }
     } ,
     {
