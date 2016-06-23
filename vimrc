@@ -23,6 +23,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,11 +111,3 @@ autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-
-au BufRead,BufNewFile *.fountain set filetype=fountain
-
-"" vim-markdown-preview
-let vim_markdown_preview_hotkey='<C-m>'
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1
-let vim_markdown_preview_use_xdg_open=1
