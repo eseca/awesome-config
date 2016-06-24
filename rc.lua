@@ -66,7 +66,8 @@ batterywidgettimer = timer({ timeout = 30 })
 batterywidgettimer:connect_signal("timeout",    
 function()    
     fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
-    read = fh:read("*l") and (" |" .. fh:read("*l") .. " | ") or ''
+    status = fh:read("*l")
+    read = status and (" |" .. status .. " | ") or ''
     batterywidget:set_text(read )    
     fh:close()    
 end    
