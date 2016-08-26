@@ -195,7 +195,7 @@ tyrannical.tags = {
         screen      = 1,
         layout      = awful.layout.suit.tile,
         class  = {
-            "Skype", "Slack"
+            "Skype", "Slack", "Whatsie"
         }
     } ,
     {
@@ -703,7 +703,7 @@ run_once("nm-applet")
 --run_once("kupfer")
 --run_once("mpd")
 --run_once("mpdscribble")
---run_once("mopidy")
+run_once("mopidy")
 --run_once("fluxgui")
 run_once("/usr/lib/notification-daemon/notification-daemon")
 run_once("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
